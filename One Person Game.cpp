@@ -30,7 +30,7 @@ int main(){
             }
             K[i]+=p0; B[i]+=1;
         }
-        printf("%.15lf",B[0]/(1-K[0]));
+        printf("%.15lf\n",B[0]/(1-K[0]));
     }
     return 0;
 }
