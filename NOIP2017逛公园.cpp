@@ -43,18 +43,18 @@ int dfs(int x,int d){
     v[x][d]=1;
     for (int i=e.head[x];i;i=e.nxt[i]){
         int y=e.to[i],w=e.edge[i];
-        for (int j=0;j<=k;++j){
-            if (dis[y]+w>dis[x]+d) continue;
-            res=(res+dfs(y,d+dis[x]+w-dis[y]))%p;
-        }
+        if (dis[y]+w>dis[x]+d) continue;
+        res=(res+dfs(y,d+dis[x]-w-dis[y]))%p;
     }
-    if (x==n) res=1;
-    f[x][0]=res;
+    if (x==n) res++;//=1不行,可能有多条路到n
+    f[x][d]=res;
     v[x][d]=0;
-    return f[x][0];
+    return f[x][d];
 }
 
 int main(){
+    freopen("a.in","r",stdin);
+    freopen("a.out","w",stdout);
     scanf("%d",&T);
     while (T--){
         e.tot=fe.tot=0;

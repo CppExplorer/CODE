@@ -1,3 +1,5 @@
 # windows
 *.exe
+*.in
+*.out
 .vscode
